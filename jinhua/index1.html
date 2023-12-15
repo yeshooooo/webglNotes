@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      canvas {
+        border: 1px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <p>hello world</p>
+    <script>
+      let canvas = document.getElementById("canvas")
+
+      // 获取context
+      let ctx = canvas.getContext("2d")
+
+      // 不能在css中设置canvas的宽和高，因为css是直接拉伸的，就像气球上的图案
+      //
+      canvas.width = 400
+      canvas.height = 400
+
+      let x = 0
+      let y = 0
+      let d = 20
+      function draw() {
+        // 把前面的内容清楚掉
+        ctx.clearRect(0,0, 400, 400)
+        ctx.fillRect(x,y, d, d)
+        x += 30
+        y += 30
+      }
+      setInterval(() => {
+        draw()
+
+
+      }, 500)
+
+
+    </script>
+
+  </body>
+</html>
